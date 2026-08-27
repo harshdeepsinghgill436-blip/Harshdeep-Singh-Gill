@@ -24,23 +24,26 @@ const QUOTES = [
 
 export function Proof() {
   return (
-    <section id="proof" className="relative border-t border-[var(--color-line)] py-24 sm:py-32">
+    <section id="proof" className="relative border-t border-[var(--color-line)] py-20 sm:py-32">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <div className="font-mono text-xs uppercase tracking-[0.25em] text-[var(--color-signal)]">
           Proof, not promises
         </div>
-        <h2 className="mt-4 max-w-2xl font-display text-4xl leading-[1.05] tracking-tight text-[var(--color-paper)] sm:text-5xl">
+        <h2 className="mt-4 max-w-2xl font-display text-3xl leading-[1.05] tracking-tight text-[var(--color-paper)] sm:text-5xl">
           Unscripted, from the people I've{" "}
           <em className="italic text-[var(--color-signal-soft)]">built with</em>.
         </h2>
 
-        <div className="mt-14 grid gap-6 lg:grid-cols-3">
+        <div className="mt-14 grid gap-6 sm:mt-16 lg:grid-cols-3">
           {QUOTES.map((t) => (
             <figure
               key={t.name}
-              className="flex flex-col rounded-2xl border border-[var(--color-line)] bg-[var(--color-ink-soft)] p-7"
+              className="card-tilt group flex flex-col rounded-2xl border border-[var(--color-line)] bg-[var(--color-ink-soft)] p-7 hover:border-[var(--color-paper-dim)]"
             >
-              <Quote size={20} className="text-[var(--color-signal)]" />
+              <Quote
+                size={22}
+                className="text-[var(--color-signal)] transition-transform duration-300 group-hover:scale-110"
+              />
               <blockquote className="mt-4 flex-1 font-display text-xl leading-snug text-[var(--color-paper)]">
                 "{t.quote}"
               </blockquote>
@@ -50,7 +53,12 @@ export function Proof() {
               </figcaption>
               {t.img && (
                 <div className="mt-4 overflow-hidden rounded-lg border border-[var(--color-line)]">
-                  <img src={t.img} alt={`Message from ${t.name}`} loading="lazy" className="w-full object-cover" />
+                  <img
+                    src={t.img}
+                    alt={`Message from ${t.name}`}
+                    loading="lazy"
+                    className="w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
                 </div>
               )}
             </figure>

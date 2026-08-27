@@ -76,3 +76,48 @@ body {
     transparent 64px
   );
 }
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.magnetic-btn {
+  position: relative;
+  isolation: isolate;
+}
+.magnetic-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--color-signal-soft);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+.magnetic-btn:hover::before {
+  opacity: 1;
+}
+
+.card-tilt {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease;
+}
+.card-tilt:hover {
+  transform: translateY(-6px);
+}
+
+.underline-grow {
+  background-image: linear-gradient(var(--color-signal), var(--color-signal));
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0% 2px;
+  transition: background-size 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.underline-grow:hover {
+  background-size: 100% 2px;
+}

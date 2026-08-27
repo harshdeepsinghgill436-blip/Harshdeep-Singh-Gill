@@ -4,6 +4,16 @@ import { Approach } from "@/sections/Approach";
 import { Work } from "@/sections/Work";
 import { Proof } from "@/sections/Proof";
 import { Contact, Footer } from "@/sections/Contact";
+import { Marquee } from "@/components/Marquee";
+
+const TICKER = [
+  "GOOGLE ADS",
+  "SALES FUNNELS",
+  "REACT & TYPESCRIPT",
+  "AI TOOLING",
+  "SUPABASE",
+  "GROWTH SYSTEMS",
+];
 
 function App() {
   return (
@@ -11,6 +21,7 @@ function App() {
       <Nav />
       <main>
         <Hero />
+        <Marquee items={TICKER} />
         <Approach />
         <Work />
         <Proof />
