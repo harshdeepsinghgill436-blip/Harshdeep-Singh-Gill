@@ -1,5 +1,7 @@
 import { Expand } from "lucide-react";
 import { useLightbox } from "@/components/Lightbox";
+import { SphereCanvas } from "@/components/SphereCanvas";
+import { FlowLines } from "@/components/FlowLines";
 
 type Shot = { src: string; caption: string };
 type Stat = { value: string; label: string };
@@ -11,7 +13,7 @@ export function CaseStudy({
   description,
   stats,
   shots,
-  tags,
+  bg = "flow",
 }: {
   eyebrow: string;
   title: string;
@@ -19,13 +21,27 @@ export function CaseStudy({
   description: string;
   stats: Stat[];
   shots: Shot[];
-  tags: string[];
+  /** Which subtle animated background motif this section uses. */
+  bg?: "flow" | "sphere";
 }) {
   const showLightbox = useLightbox();
 
   return (
-    <section id={eyebrow.toLowerCase().replace(/\s+/g, "-")} className="relative py-20 sm:py-28">
-      <div className="mx-auto max-w-6xl px-5 sm:px-8">
+    <section
+      id={eyebrow.toLowerCase().replace(/\s+/g, "-")}
+      className="relative overflow-hidden py-20 sm:py-28"
+    >
+      {bg === "flow" ? (
+        <FlowLines className="pointer-events-none absolute inset-0 h-full w-full opacity-40" />
+      ) : (
+        <SphereCanvas
+          className="pointer-events-none absolute right-[-10%] top-1/2 h-[480px] w-[480px] -translate-y-1/2 opacity-30"
+          pointCount={160}
+          radius={0.85}
+        />
+      )}
+
+      <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
         <div className="font-mono text-xs uppercase tracking-[0.25em] text-[var(--color-blue)]">
           {eyebrow}
         </div>
@@ -49,8 +65,12 @@ export function CaseStudy({
           ))}
         </div>
 
+        <p className="mt-10 flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.1em] text-[var(--color-dimmer)]">
+          <Expand size={11} /> Tap any screenshot to zoom in
+        </p>
+
         {/* Screenshot grid — small, uncropped, tap to zoom */}
-        <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-5 lg:grid-cols-4">
+        <div className="mt-3 grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-5 lg:grid-cols-4">
           {shots.map((shot) => (
             <figure
               key={shot.caption}
@@ -76,17 +96,6 @@ export function CaseStudy({
                 {shot.caption}
               </figcaption>
             </figure>
-          ))}
-        </div>
-
-        <div className="mt-8 flex flex-wrap gap-2">
-          {tags.map((t) => (
-            <span
-              key={t}
-              className="rounded-full border border-[var(--color-line)] px-3 py-1 font-mono text-[10px] uppercase tracking-[0.1em] text-[var(--color-dim)]"
-            >
-              {t}
-            </span>
           ))}
         </div>
       </div>

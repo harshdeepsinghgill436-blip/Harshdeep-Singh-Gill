@@ -10,11 +10,13 @@ export function ClosingStatement() {
       />
       <div className="relative mx-auto max-w-2xl px-5 text-center sm:px-8">
         <p className="font-display text-2xl font-medium leading-snug text-white sm:text-3xl">
-          I don't work like a consultant who hands over a report and
-          leaves. I work as a{" "}
-          <span className="text-[var(--color-blue-light)]">growth partner</span>{" "}
-          — in the business, building the systems myself, until they run
-          and grow on their own.
+          A marketing agency, a sales team, and a dev shop each solve one
+          piece — and lose time and context at every handoff between them.
+          What's above is <span className="text-[var(--color-blue-light)]">one person</span>{" "}
+          who ran the ads, built the funnel, and shipped the product,
+          across four completely different businesses. That's not
+          breadth for its own sake — it's why nothing here got lost in
+          translation on the way from strategy to something that ships.
         </p>
       </div>
     </section>

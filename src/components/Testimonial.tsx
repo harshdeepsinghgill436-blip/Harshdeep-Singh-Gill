@@ -1,4 +1,4 @@
-import { Quote } from "lucide-react";
+import { Quote, Expand } from "lucide-react";
 import { useLightbox } from "@/components/Lightbox";
 
 export function Testimonial({
@@ -29,10 +29,18 @@ export function Testimonial({
           <button
             type="button"
             onClick={() => showLightbox({ src: img, alt })}
-            className="card-hover zoomable mx-auto mt-8 block max-w-sm overflow-hidden rounded-xl border border-[var(--color-line)]"
+            className="card-hover zoomable group relative mx-auto mt-8 flex aspect-[4/3] w-full max-w-[220px] items-center justify-center overflow-hidden rounded-lg border border-[var(--color-line)] bg-[var(--color-surface)] p-2"
             aria-label={`View full message from ${name}`}
           >
-            <img src={img} alt={alt} loading="lazy" className="w-full object-contain" />
+            <img
+              src={img}
+              alt={alt}
+              loading="lazy"
+              className="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-[1.03]"
+            />
+            <span className="absolute right-2 top-2 grid h-7 w-7 place-items-center rounded-full bg-black/60 text-white opacity-0 backdrop-blur-sm transition-opacity duration-200 group-hover:opacity-100">
+              <Expand size={13} />
+            </span>
           </button>
         )}
       </div>

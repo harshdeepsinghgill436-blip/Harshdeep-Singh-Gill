@@ -55,11 +55,12 @@ function App() {
           <Testimonial
             quote="I've been impressed so far with his depth of knowledge and technical capabilities building our platform from the ground up."
             name="Drew Knapp"
-            context="Founder & CEO, A Greater Town"
+            context="Founder & CEO, A Greater Town — built his platform from the ground up"
             img={drewImg}
           />
 
           <CaseStudy
+            bg="sphere"
             eyebrow="Live build · Coaching & community"
             title="From Discord server to"
             titleAccent="private empire."
@@ -76,17 +77,17 @@ function App() {
               { src: hsJobBoard, caption: "Job Board — real utility, not a novelty feature" },
               { src: hsMarketplace, caption: "Marketplace — another reason to stay inside the app" },
             ]}
-            tags={["React", "TypeScript", "Vite", "Telegram backend"]}
           />
 
           <Testimonial
             quote="I find this very useful and valuable."
             name="Daniel"
-            context="DH Marketing, after a full funnel audit"
+            context="Founder, DH Marketing — repaired his marketing funnel"
             img={danielImg}
           />
 
           <CaseStudy
+            bg="flow"
             eyebrow="Live build · Real estate tooling"
             title="A deal calculator that"
             titleAccent="picks a side."
@@ -103,12 +104,16 @@ function App() {
               { src: lgTally, caption: "The tally — cap rate 5.9%, stamped Worth A Look" },
               { src: lgWalkaway, caption: "Same deal type, different numbers — stamped Walk Away" },
             ]}
-            tags={["React", "Alchemy API", "CoinGecko"]}
           />
 
-          <VideoTestimonial src={clientVideo} poster={clientVideoPoster} />
+          <VideoTestimonial
+            src={clientVideo}
+            poster={clientVideoPoster}
+            context="Helped him book more calls in less time, on a tighter budget"
+          />
 
           <CaseStudy
+            bg="sphere"
             eyebrow="Live build · Lead-gen media funnel"
             title="One conversation,"
             titleAccent="engineered into a campaign."
@@ -130,10 +135,10 @@ function App() {
               { src: sbtProcess, caption: "Three steps — book, produce, publish" },
               { src: sbtFaq, caption: "FAQ — the real objections, answered plainly" },
             ]}
-            tags={["Funnel design", "SEO", "Email marketing"]}
           />
 
           <CaseStudy
+            bg="flow"
             eyebrow="Live build · Cold email infrastructure"
             title="A cold email platform,"
             titleAccent="built from the wires up."
@@ -152,7 +157,6 @@ function App() {
               { src: zesSettings, caption: "The architecture, laid out in plain language" },
               { src: zesLogin, caption: "Private access only — no public signup" },
             ]}
-            tags={["Supabase", "Cron automation", "AI parsing"]}
           />
 
           <ClosingStatement />

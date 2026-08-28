@@ -4,9 +4,11 @@ import { Play } from "lucide-react";
 export function VideoTestimonial({
   src,
   poster,
+  context,
 }: {
   src: string;
   poster: string;
+  context?: string;
 }) {
   const ref = useRef<HTMLVideoElement>(null);
   const [playing, setPlaying] = useState(false);
@@ -24,7 +26,7 @@ export function VideoTestimonial({
         <div className="font-mono text-xs uppercase tracking-[0.15em] text-[var(--color-blue)]">
           Straight from a client
         </div>
-        <p className="mt-2 text-sm text-[var(--color-dim)]">Recorded, unscripted, on camera.</p>
+        <p className="mt-2 text-sm text-[var(--color-dim)]">A real client, unprompted, in his own words.</p>
 
         <div className="card-hover group relative mx-auto mt-8 aspect-[9/16] w-full max-w-[280px] overflow-hidden rounded-2xl border border-[var(--color-line)] bg-[var(--color-surface)]">
           <video
@@ -50,6 +52,12 @@ export function VideoTestimonial({
             </button>
           )}
         </div>
+
+        {context && (
+          <div className="mt-5 font-mono text-xs uppercase tracking-[0.15em] text-[var(--color-dim)]">
+            {context}
+          </div>
+        )}
       </div>
     </section>
   );
