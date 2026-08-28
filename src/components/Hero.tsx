@@ -53,9 +53,22 @@ export function Hero() {
           <span className="text-[var(--color-blue-light)]">Singh Gill</span>
         </h1>
 
+        <p
+          className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-[var(--color-dim)] transition-all duration-700 ease-out sm:text-lg"
+          style={{
+            opacity: loaded ? 1 : 0,
+            transform: loaded ? "none" : "translateY(18px)",
+            transitionDelay: "160ms",
+          }}
+        >
+          Growth partner for businesses. Sales, marketing, and the tech
+          underneath both — built into self-sustaining systems that keep
+          growing without me in the room.
+        </p>
+
         <div
           className="mx-auto mt-10 h-px w-24 bg-[var(--color-blue)] transition-all duration-700 ease-out"
-          style={{ opacity: loaded ? 1 : 0, transitionDelay: "220ms" }}
+          style={{ opacity: loaded ? 1 : 0, transitionDelay: "260ms" }}
         />
       </div>
     </section>

@@ -1,3 +1,6 @@
+import { Expand } from "lucide-react";
+import { useLightbox } from "@/components/Lightbox";
+
 type Shot = { src: string; caption: string };
 type Stat = { value: string; label: string };
 
@@ -18,6 +21,8 @@ export function CaseStudy({
   shots: Shot[];
   tags: string[];
 }) {
+  const showLightbox = useLightbox();
+
   return (
     <section id={eyebrow.toLowerCase().replace(/\s+/g, "-")} className="relative py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
@@ -31,11 +36,12 @@ export function CaseStudy({
           {description}
         </p>
 
-        {/* Stat row */}
+        {/* Stat row — numbered, Sharplink-style */}
         <div className="mt-10 grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-[var(--color-line)] bg-[var(--color-line)] sm:grid-cols-4">
-          {stats.map((s) => (
+          {stats.map((s, i) => (
             <div key={s.label} className="bg-[var(--color-surface)] p-4 sm:p-5">
-              <div className="font-display text-xl font-semibold text-[var(--color-blue-light)] sm:text-2xl">
+              <div className="font-mono text-[10px] text-[var(--color-blue)]">0{i + 1}</div>
+              <div className="mt-1 font-display text-xl font-semibold text-white sm:text-2xl">
                 {s.value}
               </div>
               <div className="mt-1 text-xs leading-snug text-[var(--color-dim)]">{s.label}</div>
@@ -43,21 +49,29 @@ export function CaseStudy({
           ))}
         </div>
 
-        {/* Screenshot grid — small, uncropped cards */}
+        {/* Screenshot grid — small, uncropped, tap to zoom */}
         <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-5 lg:grid-cols-4">
           {shots.map((shot) => (
             <figure
               key={shot.caption}
               className="card-hover overflow-hidden rounded-lg border border-[var(--color-line)] bg-[var(--color-surface)]"
             >
-              <div className="flex aspect-[4/3] items-center justify-center bg-[var(--color-surface-2)] p-2">
+              <button
+                type="button"
+                onClick={() => showLightbox({ src: shot.src, alt: shot.caption })}
+                className="zoomable group relative flex aspect-[4/3] w-full items-center justify-center bg-[var(--color-surface-2)] p-2"
+                aria-label={`Zoom: ${shot.caption}`}
+              >
                 <img
                   src={shot.src}
                   alt={shot.caption}
                   loading="lazy"
-                  className="max-h-full max-w-full object-contain"
+                  className="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-[1.03]"
                 />
-              </div>
+                <span className="absolute right-2 top-2 grid h-7 w-7 place-items-center rounded-full bg-black/60 text-white opacity-0 backdrop-blur-sm transition-opacity duration-200 group-hover:opacity-100">
+                  <Expand size={13} />
+                </span>
+              </button>
               <figcaption className="border-t border-[var(--color-line)] px-3 py-2.5 text-[11px] leading-snug text-[var(--color-dim)]">
                 {shot.caption}
               </figcaption>

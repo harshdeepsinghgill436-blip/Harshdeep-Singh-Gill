@@ -1,4 +1,5 @@
 import { Quote } from "lucide-react";
+import { useLightbox } from "@/components/Lightbox";
 
 export function Testimonial({
   quote,
@@ -11,6 +12,9 @@ export function Testimonial({
   context: string;
   img?: string;
 }) {
+  const showLightbox = useLightbox();
+  const alt = `Message from ${name}`;
+
   return (
     <section className="relative border-y border-[var(--color-line)] py-20 sm:py-28">
       <div className="mx-auto max-w-3xl px-5 text-center sm:px-8">
@@ -22,9 +26,14 @@ export function Testimonial({
           {name} — {context}
         </div>
         {img && (
-          <div className="card-hover mx-auto mt-8 max-w-sm overflow-hidden rounded-xl border border-[var(--color-line)]">
-            <img src={img} alt={`Message from ${name}`} loading="lazy" className="w-full object-contain" />
-          </div>
+          <button
+            type="button"
+            onClick={() => showLightbox({ src: img, alt })}
+            className="card-hover zoomable mx-auto mt-8 block max-w-sm overflow-hidden rounded-xl border border-[var(--color-line)]"
+            aria-label={`View full message from ${name}`}
+          >
+            <img src={img} alt={alt} loading="lazy" className="w-full object-contain" />
+          </button>
         )}
       </div>
     </section>

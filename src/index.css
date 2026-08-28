@@ -11,8 +11,8 @@
   --color-white: #ffffff;
   --color-dim: #9aa0aa;
   --color-dimmer: #5c626d;
-  --color-blue: #3b82f6;
-  --color-blue-light: #7db4ff;
+  --color-blue: #0e76ff;
+  --color-blue-light: #5aa3ff;
   --color-line: #1c2027;
 }
 
@@ -55,6 +55,15 @@ body {
 @keyframes marquee {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
+}
+
+@keyframes lightbox-in {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.zoomable {
+  cursor: zoom-in;
 }
 
 .magnetic-btn {

@@ -2,8 +2,10 @@ import { Nav } from "@/components/Nav";
 import { Hero } from "@/components/Hero";
 import { Marquee } from "@/components/Marquee";
 import { Testimonial } from "@/components/Testimonial";
+import { VideoTestimonial } from "@/components/VideoTestimonial";
 import { CaseStudy } from "@/components/CaseStudy";
 import { Footer } from "@/components/Footer";
+import { LightboxProvider } from "@/components/Lightbox";
 
 // High Society
 import hsHome from "@/assets/case-studies/high-society/home.jpg";
@@ -36,7 +38,11 @@ import zesClients from "@/assets/case-studies/zes/clients.jpg";
 import zesSettings from "@/assets/case-studies/zes/settings.jpg";
 import zesLogin from "@/assets/case-studies/zes/login.jpg";
 
+// Testimonials
 import drewImg from "@/assets/testimonials/drew.jpg";
+import danielImg from "@/assets/testimonials/daniel.jpg";
+import clientVideo from "@/assets/testimonials/client-video.mp4";
+import clientVideoPoster from "@/assets/testimonials/client-video-poster.jpg";
 
 const TICKER = [
   "GOOGLE ADS",
@@ -49,132 +55,126 @@ const TICKER = [
 
 function App() {
   return (
-    <div id="top" className="min-h-screen bg-[var(--color-bg)] text-white">
-      <Nav />
-      <main>
-        <Hero />
-        <Marquee items={TICKER} />
+    <LightboxProvider>
+      <div id="top" className="min-h-screen bg-[var(--color-bg)] text-white">
+        <Nav />
+        <main>
+          <Hero />
+          <Marquee items={TICKER} />
 
-        <Testimonial
-          quote="I've been impressed so far with his depth of knowledge and technical capabilities building our platform from the ground up."
-          name="Drew Knapp"
-          context="Founder & CEO, A Greater Town"
-          img={drewImg}
-        />
+          <Testimonial
+            quote="I've been impressed so far with his depth of knowledge and technical capabilities building our platform from the ground up."
+            name="Drew Knapp"
+            context="Founder & CEO, A Greater Town"
+            img={drewImg}
+          />
 
-        <CaseStudy
-          eyebrow="Live build · Coaching & community"
-          title="From Discord server to"
-          titleAccent="private empire."
-          description="High Society was a coaching community living entirely inside Discord. We gave it a home of its own — a private branded app, a website that actually sells the vision, and a funnel engineered to convert cold visitors into paying members."
-          stats={[
-            { value: "20", label: "New members in 3 weeks" },
-            { value: "↑", label: "Direct sales, post-launch" },
-            { value: "New", label: "Affiliate channel stood up" },
-            { value: "1", label: "Private branded app shipped" },
-          ]}
-          shots={[
-            { src: hsHome, caption: "Home — first impression on login" },
-            { src: hsLearning, caption: "Learning Center — value visible from minute one" },
-            { src: hsJobBoard, caption: "Job Board — real utility, not a novelty feature" },
-            { src: hsMarketplace, caption: "Marketplace — another reason to stay inside the app" },
-          ]}
-          tags={["React", "TypeScript", "Vite", "Telegram backend"]}
-        />
+          <CaseStudy
+            eyebrow="Live build · Coaching & community"
+            title="From Discord server to"
+            titleAccent="private empire."
+            description="High Society was a coaching community living entirely inside Discord. We gave it a home of its own — a private branded app, a website that actually sells the vision, and a funnel engineered to convert cold visitors into paying members."
+            stats={[
+              { value: "20", label: "New members in 3 weeks" },
+              { value: "↑", label: "Direct sales, post-launch" },
+              { value: "New", label: "Affiliate channel stood up" },
+              { value: "1", label: "Private branded app shipped" },
+            ]}
+            shots={[
+              { src: hsHome, caption: "Home — first impression on login" },
+              { src: hsLearning, caption: "Learning Center — value visible from minute one" },
+              { src: hsJobBoard, caption: "Job Board — real utility, not a novelty feature" },
+              { src: hsMarketplace, caption: "Marketplace — another reason to stay inside the app" },
+            ]}
+            tags={["React", "TypeScript", "Vite", "Telegram backend"]}
+          />
 
-        <Testimonial
-          quote="I find this very useful and valuable."
-          name="Daniel"
-          context="DH Marketing"
-        />
+          <Testimonial
+            quote="I find this very useful and valuable."
+            name="Daniel"
+            context="DH Marketing, after a full funnel audit"
+            img={danielImg}
+          />
 
-        <CaseStudy
-          eyebrow="Live build · Real estate tooling"
-          title="A deal calculator that"
-          titleAccent="picks a side."
-          description="The Ledger is a tailored real estate investment calculator — every screen below is the actual live tool, running real numbers. Six deal types, one shared structure, instant verdicts."
-          stats={[
-            { value: "6", label: "Deal types in one tool" },
-            { value: "Live", label: "Every field recalculates instantly" },
-            { value: "Cap rate", label: "Cash flow, CoC return, 1% rule" },
-            { value: "3", label: "Deals saved and ready to compare" },
-          ]}
-          shots={[
-            { src: lgRental, caption: "Rental mode — the base line-item structure every mode shares" },
-            { src: lgBrrrr, caption: "BRRRR mode — rehab cost, ARV, and refinance terms up front" },
-            { src: lgTally, caption: "The tally — cap rate 5.9%, stamped Worth A Look" },
-            { src: lgWalkaway, caption: "Same deal type, different numbers — stamped Walk Away" },
-          ]}
-          tags={["React", "Alchemy API", "CoinGecko"]}
-        />
+          <CaseStudy
+            eyebrow="Live build · Real estate tooling"
+            title="A deal calculator that"
+            titleAccent="picks a side."
+            description="The Ledger is a tailored real estate investment calculator — every screen below is the actual live tool, running real numbers. Six deal types, one shared structure, instant verdicts."
+            stats={[
+              { value: "6", label: "Deal types in one tool" },
+              { value: "Live", label: "Every field recalculates instantly" },
+              { value: "Cap rate", label: "Cash flow, CoC return, 1% rule" },
+              { value: "3", label: "Deals saved and ready to compare" },
+            ]}
+            shots={[
+              { src: lgRental, caption: "Rental mode — the base line-item structure every mode shares" },
+              { src: lgBrrrr, caption: "BRRRR mode — rehab cost, ARV, and refinance terms up front" },
+              { src: lgTally, caption: "The tally — cap rate 5.9%, stamped Worth A Look" },
+              { src: lgWalkaway, caption: "Same deal type, different numbers — stamped Walk Away" },
+            ]}
+            tags={["React", "Alchemy API", "CoinGecko"]}
+          />
 
-        <Testimonial
-          quote="I find this very useful and valuable."
-          name="Daniel"
-          context="DH Marketing"
-        />
+          <VideoTestimonial src={clientVideo} poster={clientVideoPoster} />
 
-        <CaseStudy
-          eyebrow="Live build · Lead-gen media funnel"
-          title="One conversation,"
-          titleAccent="engineered into a campaign."
-          description="Small Business Talks turns a single interview into a full media package — video, podcast syndication, and a lead-gen funnel built to rank small business clients fast. A real client moved from page 3 to page 1 in three weeks."
-          stats={[
-            { value: "21", label: "Media items in one package" },
-            { value: "5+", label: "Podcast platforms per episode" },
-            { value: "Page 1", label: "Real client: page 3 to page 1 in 3 weeks" },
-            { value: "DA 60", label: "Publishing authority on the host site" },
-          ]}
-          shots={[
-            { src: sbtHero, caption: "The hero — the full offer, stated plainly" },
-            { src: sbtYoutube, caption: "A real published interview, embedded live" },
-            { src: sbtPodcast, caption: "The real podcast feed — proof, not a promise" },
-            { src: sbtResults, caption: "Dawn Home Care — page 3 to page 1 in 3 weeks" },
-            { src: sbtSamples, caption: "Samples organized by format — video, podcast, social" },
-            { src: sbtMainstreet, caption: "\u201cBuilt for Main Street\u201d — the exclusion is the pitch" },
-            { src: sbtPackage, caption: "21 items, spaced out — nothing left vague" },
-            { src: sbtProcess, caption: "Three steps — book, produce, publish" },
-            { src: sbtFaq, caption: "FAQ — the real objections, answered plainly" },
-          ]}
-          tags={["Funnel design", "SEO", "Email marketing"]}
-        />
+          <CaseStudy
+            eyebrow="Live build · Lead-gen media funnel"
+            title="One conversation,"
+            titleAccent="engineered into a campaign."
+            description="Small Business Talks turns a single interview into a full media package — video, podcast syndication, and a lead-gen funnel built to rank small business clients fast. A real client moved from page 3 to page 1 in three weeks."
+            stats={[
+              { value: "21", label: "Media items in one package" },
+              { value: "5+", label: "Podcast platforms per episode" },
+              { value: "Page 1", label: "Real client: page 3 to page 1 in 3 weeks" },
+              { value: "DA 60", label: "Publishing authority on the host site" },
+            ]}
+            shots={[
+              { src: sbtHero, caption: "The hero — the full offer, stated plainly" },
+              { src: sbtYoutube, caption: "A real published interview, embedded live" },
+              { src: sbtPodcast, caption: "The real podcast feed — proof, not a promise" },
+              { src: sbtResults, caption: "Dawn Home Care — page 3 to page 1 in 3 weeks" },
+              { src: sbtSamples, caption: "Samples organized by format — video, podcast, social" },
+              { src: sbtMainstreet, caption: "\u201cBuilt for Main Street\u201d — the exclusion is the pitch" },
+              { src: sbtPackage, caption: "21 items, spaced out — nothing left vague" },
+              { src: sbtProcess, caption: "Three steps — book, produce, publish" },
+              { src: sbtFaq, caption: "FAQ — the real objections, answered plainly" },
+            ]}
+            tags={["Funnel design", "SEO", "Email marketing"]}
+          />
 
-        <Testimonial
-          quote="I've been impressed so far with his depth of knowledge and technical capabilities building our platform from the ground up."
-          name="Drew Knapp"
-          context="Founder & CEO, A Greater Town"
-        />
+          <Testimonial
+            quote="I find this very useful and valuable."
+            name="Daniel"
+            context="DH Marketing, after a full funnel audit"
+            img={danielImg}
+          />
 
-        <CaseStudy
-          eyebrow="Live build · Cold email infrastructure"
-          title="A cold email platform,"
-          titleAccent="built from the wires up."
-          description="Z Email System is a self-hosted cold outreach tool sold as a one-time purchase instead of a subscription. AI lead parsing, unlimited sequenced follow-up steps, and multi-client sub-accounts — built for agencies, not rented to them."
-          stats={[
-            { value: "AI", label: "Lead parsing from raw text/CSV" },
-            { value: "∞", label: "Unlimited sequenced steps" },
-            { value: "Multi", label: "Client sub-accounts, own expiry" },
-            { value: "Self", label: "Hosted — no rented platform" },
-          ]}
-          shots={[
-            { src: zesDashboard, caption: "The dashboard — live counts, not estimates" },
-            { src: zesCampaigns, caption: "A live campaign — one lead, one active sequence" },
-            { src: zesCopysets, caption: "Cold Outreach 1 — 2 steps, Day 1 + a 2-day follow-up" },
-            { src: zesClients, caption: "Client accounts — 31-day cycles, one admin with no expiry" },
-            { src: zesSettings, caption: "The architecture, laid out in plain language" },
-            { src: zesLogin, caption: "Private access only — no public signup" },
-          ]}
-          tags={["Supabase", "Cron automation", "AI parsing"]}
-        />
-
-        <Testimonial
-          quote="I find this very useful and valuable."
-          name="Daniel"
-          context="DH Marketing"
-        />
-      </main>
-      <Footer />
-    </div>
+          <CaseStudy
+            eyebrow="Live build · Cold email infrastructure"
+            title="A cold email platform,"
+            titleAccent="built from the wires up."
+            description="Z Email System is a self-hosted cold outreach tool sold as a one-time purchase instead of a subscription. AI lead parsing, unlimited sequenced follow-up steps, and multi-client sub-accounts — built for agencies, not rented to them."
+            stats={[
+              { value: "AI", label: "Lead parsing from raw text/CSV" },
+              { value: "∞", label: "Unlimited sequenced steps" },
+              { value: "Multi", label: "Client sub-accounts, own expiry" },
+              { value: "Self", label: "Hosted — no rented platform" },
+            ]}
+            shots={[
+              { src: zesDashboard, caption: "The dashboard — live counts, not estimates" },
+              { src: zesCampaigns, caption: "A live campaign — one lead, one active sequence" },
+              { src: zesCopysets, caption: "Cold Outreach 1 — 2 steps, Day 1 + a 2-day follow-up" },
+              { src: zesClients, caption: "Client accounts — 31-day cycles, one admin with no expiry" },
+              { src: zesSettings, caption: "The architecture, laid out in plain language" },
+              { src: zesLogin, caption: "Private access only — no public signup" },
+            ]}
+            tags={["Supabase", "Cron automation", "AI parsing"]}
+          />
+        </main>
+        <Footer />
+      </div>
+    </LightboxProvider>
   );
 }
 
