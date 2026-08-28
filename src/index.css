@@ -98,5 +98,28 @@ canvas {
 }
 
 .glow-blue {
-  box-shadow: 0 0 0 1px var(--color-line), 0 20px 60px -20px rgba(59, 130, 246, 0.15);
+  box-shadow: 0 0 0 1px var(--color-line), 0 20px 70px -15px rgba(14, 118, 255, 0.35);
+}
+
+.glow-card {
+  box-shadow:
+    0 0 0 1px rgba(14, 118, 255, 0.25),
+    0 0 40px -8px rgba(14, 118, 255, 0.35),
+    0 25px 80px -20px rgba(14, 118, 255, 0.4);
+  animation: glow-breathe 4s ease-in-out infinite;
+}
+
+@keyframes glow-breathe {
+  0%, 100% {
+    box-shadow:
+      0 0 0 1px rgba(14, 118, 255, 0.25),
+      0 0 40px -8px rgba(14, 118, 255, 0.35),
+      0 25px 80px -20px rgba(14, 118, 255, 0.4);
+  }
+  50% {
+    box-shadow:
+      0 0 0 1px rgba(14, 118, 255, 0.4),
+      0 0 60px -6px rgba(14, 118, 255, 0.5),
+      0 25px 90px -18px rgba(14, 118, 255, 0.55);
+  }
 }

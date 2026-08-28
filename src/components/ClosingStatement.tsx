@@ -1,20 +1,24 @@
 import { GrowthField } from "@/components/GrowthField";
+import { Quote } from "lucide-react";
 
 export function ClosingStatement() {
   return (
     <section className="relative overflow-hidden border-t border-[var(--color-line)] py-24 sm:py-32">
       <GrowthField className="pointer-events-none absolute inset-0 h-full w-full opacity-50" />
       <div className="relative mx-auto max-w-2xl px-5 sm:px-8">
-        <div className="glow-blue rounded-2xl border border-[var(--color-line)] bg-[var(--color-surface)] p-8 sm:p-12">
-          <p className="font-display text-xl font-medium leading-relaxed text-white sm:text-2xl">
-            "Everything on this page is something I built and ran myself —
-            the ads, the funnel, the product. I'm not the cheaper option
-            because I skip steps. I'm the faster one, because there's no
-            handoff between the person who plans the growth and the person
-            who builds it."
+        <div className="glow-card relative rounded-2xl border border-[var(--color-blue)]/20 bg-gradient-to-b from-[var(--color-surface)] to-[var(--color-surface-2)] p-8 sm:p-14">
+          <Quote size={26} className="text-[var(--color-blue)]" />
+          <p className="mt-5 font-display text-2xl font-medium italic leading-snug tracking-tight text-white sm:text-[2rem]">
+            Every case study above was one person — the strategy, the
+            build, and the follow-through, with nothing lost translating
+            between them. That's what a growth partner means: not cheaper
+            because steps get skipped, faster because none do.
           </p>
-          <div className="mt-6 font-mono text-xs uppercase tracking-[0.15em] text-[var(--color-blue-light)]">
-            — Harshdeep Singh Gill
+          <div className="mt-8 flex items-center gap-3 border-t border-[var(--color-line)] pt-6">
+            <div className="h-px flex-1 bg-gradient-to-r from-[var(--color-blue)] to-transparent" />
+            <div className="font-mono text-xs uppercase tracking-[0.2em] text-[var(--color-blue-light)]">
+              Harshdeep Singh Gill
+            </div>
           </div>
         </div>
       </div>

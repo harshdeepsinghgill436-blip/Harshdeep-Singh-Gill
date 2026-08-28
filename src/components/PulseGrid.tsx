@@ -2,12 +2,13 @@ import { useEffect, useRef } from "react";
 
 /**
  * A soft grid of pulsing dots with organic, staggered breathing —
- * intentionally loose and non-mechanical (unlike the wireframe
- * sphere) for use in the hero where rigidity reads as cold.
+ * loose and non-mechanical (unlike the wireframe sphere), but
+ * visible across the full canvas rather than fading out near the
+ * edges.
  */
 export function PulseGrid({
   className,
-  spacing = 46,
+  spacing = 42,
   color = "14, 118, 255",
 }: {
   className?: string;
@@ -43,8 +44,6 @@ export function PulseGrid({
     let raf = 0;
     let elapsed = 0;
     let lastT = 0;
-    const cx0 = 0.5;
-    const cy0 = 0.4;
 
     function frame(t: number) {
       if (!ctx || !canvas) return;
@@ -56,19 +55,16 @@ export function PulseGrid({
 
       const cols = Math.ceil(width / spacing) + 1;
       const rows = Math.ceil(height / spacing) + 1;
+      const diag = Math.sqrt(width * width + height * height);
 
       for (let i = 0; i < cols; i++) {
         for (let j = 0; j < rows; j++) {
           const x = i * spacing;
           const y = j * spacing;
-          const dx = x / width - cx0;
-          const dy = y / height - cy0;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          const wave = Math.sin(elapsed * 0.6 - dist * 6) * 0.5 + 0.5;
-          const falloff = Math.max(0, 1 - dist * 1.3);
-          const alpha = wave * falloff * 0.35;
-          if (alpha < 0.01) continue;
-          const size = 0.8 + wave * falloff * 1.6;
+          const dist = Math.sqrt((x - width / 2) ** 2 + (y - height / 2) ** 2) / diag;
+          const wave = Math.sin(elapsed * 0.7 - dist * 10 + (i + j) * 0.3) * 0.5 + 0.5;
+          const alpha = 0.1 + wave * 0.55;
+          const size = 1 + wave * 2.2;
           ctx.fillStyle = `rgba(${color}, ${alpha})`;
           ctx.beginPath();
           ctx.arc(x, y, size, 0, Math.PI * 2);
