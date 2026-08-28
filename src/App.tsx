@@ -1,10 +1,10 @@
 import { Nav } from "@/components/Nav";
 import { Hero } from "@/components/Hero";
-import { Marquee } from "@/components/Marquee";
 import { Testimonial } from "@/components/Testimonial";
 import { VideoTestimonial } from "@/components/VideoTestimonial";
 import { CaseStudy } from "@/components/CaseStudy";
 import { Footer } from "@/components/Footer";
+import { ClosingStatement } from "@/components/ClosingStatement";
 import { LightboxProvider } from "@/components/Lightbox";
 
 // High Society
@@ -44,15 +44,6 @@ import danielImg from "@/assets/testimonials/daniel.jpg";
 import clientVideo from "@/assets/testimonials/client-video.mp4";
 import clientVideoPoster from "@/assets/testimonials/client-video-poster.jpg";
 
-const TICKER = [
-  "GOOGLE ADS",
-  "SALES FUNNELS",
-  "REACT & TYPESCRIPT",
-  "AI TOOLING",
-  "SUPABASE",
-  "GROWTH SYSTEMS",
-];
-
 function App() {
   return (
     <LightboxProvider>
@@ -60,7 +51,6 @@ function App() {
         <Nav />
         <main>
           <Hero />
-          <Marquee items={TICKER} />
 
           <Testimonial
             quote="I've been impressed so far with his depth of knowledge and technical capabilities building our platform from the ground up."
@@ -143,13 +133,6 @@ function App() {
             tags={["Funnel design", "SEO", "Email marketing"]}
           />
 
-          <Testimonial
-            quote="I find this very useful and valuable."
-            name="Daniel"
-            context="DH Marketing, after a full funnel audit"
-            img={danielImg}
-          />
-
           <CaseStudy
             eyebrow="Live build · Cold email infrastructure"
             title="A cold email platform,"
@@ -171,6 +154,8 @@ function App() {
             ]}
             tags={["Supabase", "Cron automation", "AI parsing"]}
           />
+
+          <ClosingStatement />
         </main>
         <Footer />
       </div>

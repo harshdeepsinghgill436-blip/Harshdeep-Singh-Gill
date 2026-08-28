@@ -1,75 +1,27 @@
-import { useEffect, useRef, useState } from "react";
+import { SphereCanvas } from "@/components/SphereCanvas";
 
 export function Hero() {
-  const glowRef = useRef<HTMLDivElement>(null);
-  const [loaded, setLoaded] = useState(false);
-
-  useEffect(() => {
-    const t = setTimeout(() => setLoaded(true), 40);
-    return () => clearTimeout(t);
-  }, []);
-
-  useEffect(() => {
-    function handleMove(e: PointerEvent) {
-      const el = glowRef.current;
-      if (!el) return;
-      const { innerWidth, innerHeight } = window;
-      const x = (e.clientX / innerWidth - 0.5) * 50;
-      const y = (e.clientY / innerHeight - 0.5) * 50;
-      el.style.transform = `translate(${x}px, ${y}px)`;
-    }
-    window.addEventListener("pointermove", handleMove);
-    return () => window.removeEventListener("pointermove", handleMove);
-  }, []);
-
   return (
     <section className="relative overflow-hidden pt-36 pb-20 sm:pt-48 sm:pb-28">
       <div className="pointer-events-none absolute inset-0 noise" aria-hidden />
-      <div
-        ref={glowRef}
-        className="pointer-events-none absolute -top-32 left-1/2 h-[500px] w-[700px] -translate-x-1/2 opacity-20 blur-[130px] transition-transform duration-500 ease-out"
-        style={{ background: "radial-gradient(circle, var(--color-blue) 0%, transparent 70%)" }}
-        aria-hidden
+
+      <SphereCanvas
+        className="pointer-events-none absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 opacity-70 sm:h-[820px] sm:w-[820px]"
+        pointCount={260}
       />
 
       <div className="relative mx-auto max-w-5xl px-5 text-center sm:px-8">
-        <div
-          className="font-mono text-xs uppercase tracking-[0.3em] text-[var(--color-dim)] transition-all duration-700 ease-out"
-          style={{ opacity: loaded ? 1 : 0, transform: loaded ? "none" : "translateY(14px)" }}
-        >
-          Case studies & results
-        </div>
-
-        <h1
-          className="mt-6 font-display text-[13vw] font-semibold leading-[0.95] tracking-tight text-white transition-all duration-700 ease-out sm:text-7xl md:text-8xl"
-          style={{
-            opacity: loaded ? 1 : 0,
-            transform: loaded ? "none" : "translateY(24px)",
-            transitionDelay: "80ms",
-          }}
-        >
+        <h1 className="font-display text-[13vw] font-semibold leading-[0.95] tracking-tight text-white sm:text-7xl md:text-8xl">
           Harshdeep
           <br />
           <span className="text-[var(--color-blue-light)]">Singh Gill</span>
         </h1>
 
-        <p
-          className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-[var(--color-dim)] transition-all duration-700 ease-out sm:text-lg"
-          style={{
-            opacity: loaded ? 1 : 0,
-            transform: loaded ? "none" : "translateY(18px)",
-            transitionDelay: "160ms",
-          }}
-        >
+        <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-[var(--color-dim)] sm:text-lg">
           Growth partner for businesses. Sales, marketing, and the tech
           underneath both — built into self-sustaining systems that keep
           growing without me in the room.
         </p>
-
-        <div
-          className="mx-auto mt-10 h-px w-24 bg-[var(--color-blue)] transition-all duration-700 ease-out"
-          style={{ opacity: loaded ? 1 : 0, transitionDelay: "260ms" }}
-        />
       </div>
     </section>
   );
