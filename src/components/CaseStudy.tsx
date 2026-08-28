@@ -2,6 +2,8 @@ import { Expand } from "lucide-react";
 import { useLightbox } from "@/components/Lightbox";
 import { SphereCanvas } from "@/components/SphereCanvas";
 import { FlowLines } from "@/components/FlowLines";
+import { GrowthField } from "@/components/GrowthField";
+import { PulseGrid } from "@/components/PulseGrid";
 
 type Shot = { src: string; caption: string };
 type Stat = { value: string; label: string };
@@ -22,7 +24,7 @@ export function CaseStudy({
   stats: Stat[];
   shots: Shot[];
   /** Which subtle animated background motif this section uses. */
-  bg?: "flow" | "sphere";
+  bg?: "flow" | "sphere" | "growth" | "pulse";
 }) {
   const showLightbox = useLightbox();
 
@@ -31,14 +33,21 @@ export function CaseStudy({
       id={eyebrow.toLowerCase().replace(/\s+/g, "-")}
       className="relative overflow-hidden py-20 sm:py-28"
     >
-      {bg === "flow" ? (
+      {bg === "flow" && (
         <FlowLines className="pointer-events-none absolute inset-0 h-full w-full opacity-40" />
-      ) : (
+      )}
+      {bg === "sphere" && (
         <SphereCanvas
           className="pointer-events-none absolute right-[-10%] top-1/2 h-[480px] w-[480px] -translate-y-1/2 opacity-30"
-          pointCount={160}
+          pointCount={140}
           radius={0.85}
         />
+      )}
+      {bg === "growth" && (
+        <GrowthField className="pointer-events-none absolute inset-0 h-full w-full opacity-40" count={40} />
+      )}
+      {bg === "pulse" && (
+        <PulseGrid className="pointer-events-none absolute inset-0 h-full w-full opacity-50" />
       )}
 
       <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
@@ -88,7 +97,7 @@ export function CaseStudy({
                   loading="lazy"
                   className="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-[1.03]"
                 />
-                <span className="absolute right-2 top-2 grid h-7 w-7 place-items-center rounded-full bg-black/60 text-white opacity-0 backdrop-blur-sm transition-opacity duration-200 group-hover:opacity-100">
+                <span className="absolute right-2 top-2 grid h-7 w-7 place-items-center rounded-full bg-black/70 text-white backdrop-blur-sm transition-transform duration-200 group-hover:scale-110">
                   <Expand size={13} />
                 </span>
               </button>

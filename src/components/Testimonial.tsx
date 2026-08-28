@@ -38,7 +38,7 @@ export function Testimonial({
               loading="lazy"
               className="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-[1.03]"
             />
-            <span className="absolute right-2 top-2 grid h-7 w-7 place-items-center rounded-full bg-black/60 text-white opacity-0 backdrop-blur-sm transition-opacity duration-200 group-hover:opacity-100">
+            <span className="absolute right-2 top-2 grid h-7 w-7 place-items-center rounded-full bg-black/70 text-white backdrop-blur-sm transition-transform duration-200 group-hover:scale-110">
               <Expand size={13} />
             </span>
           </button>

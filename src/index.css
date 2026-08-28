@@ -13,6 +13,8 @@
   --color-dimmer: #5c626d;
   --color-blue: #0e76ff;
   --color-blue-light: #5aa3ff;
+  --color-violet: #7c5cff;
+  --color-cyan: #22d3ee;
   --color-line: #1c2027;
 }
 
@@ -46,6 +48,11 @@ body {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+canvas {
+  will-change: transform;
+  contain: strict;
 }
 
 .noise {

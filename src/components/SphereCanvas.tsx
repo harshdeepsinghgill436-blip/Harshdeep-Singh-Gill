@@ -88,28 +88,29 @@ export function SphereCanvas({
         };
       });
 
-      // connect nearby points for a wireframe feel
+      // connect nearby points — only check a local index window, since
+      // Fibonacci sphere ordering keeps consecutive indices spatially
+      // close. Avoids an O(n²) pass every frame.
       ctx.lineWidth = 0.6;
+      ctx.strokeStyle = `rgba(${color}, 0.1)`;
+      ctx.beginPath();
+      const window = Math.min(14, projected.length - 1);
       for (let i = 0; i < projected.length; i++) {
-        for (let j = i + 1; j < projected.length; j++) {
-          const a = projected[i];
+        const a = projected[i];
+        for (let k = 1; k <= window; k++) {
+          const j = i + k;
+          if (j >= projected.length) break;
           const b = projected[j];
           const dx = a.x - b.x;
           const dy = a.y - b.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
           if (dist < scale * 0.32) {
-            const depth = (a.z + b.z) / 2;
-            const alpha = Math.max(0, (depth + 1) / 2) * 0.15;
-            if (alpha > 0.02) {
-              ctx.strokeStyle = `rgba(${color}, ${alpha})`;
-              ctx.beginPath();
-              ctx.moveTo(a.x, a.y);
-              ctx.lineTo(b.x, b.y);
-              ctx.stroke();
-            }
+            ctx.moveTo(a.x, a.y);
+            ctx.lineTo(b.x, b.y);
           }
         }
       }
+      ctx.stroke();
 
       // draw points, brighter when facing viewer
       for (const p of projected) {

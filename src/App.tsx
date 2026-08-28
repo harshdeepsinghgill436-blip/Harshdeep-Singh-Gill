@@ -55,7 +55,7 @@ function App() {
           <Testimonial
             quote="I've been impressed so far with his depth of knowledge and technical capabilities building our platform from the ground up."
             name="Drew Knapp"
-            context="Founder & CEO, A Greater Town — built his platform from the ground up"
+            context="Founder & CEO, A Greater Town"
             img={drewImg}
           />
 
@@ -113,7 +113,7 @@ function App() {
           />
 
           <CaseStudy
-            bg="sphere"
+            bg="growth"
             eyebrow="Live build · Lead-gen media funnel"
             title="One conversation,"
             titleAccent="engineered into a campaign."
@@ -138,7 +138,7 @@ function App() {
           />
 
           <CaseStudy
-            bg="flow"
+            bg="pulse"
             eyebrow="Live build · Cold email infrastructure"
             title="A cold email platform,"
             titleAccent="built from the wires up."

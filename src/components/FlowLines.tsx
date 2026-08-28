@@ -78,21 +78,20 @@ export function FlowLines({
 
       const linkDist = Math.min(width, height) * 0.28;
       ctx.lineWidth = 1;
+      ctx.strokeStyle = `rgba(${color}, 0.12)`;
+      ctx.beginPath();
       for (let i = 0; i < px.length; i++) {
         for (let j = i + 1; j < px.length; j++) {
           const dx = px[i].x - px[j].x;
           const dy = px[i].y - px[j].y;
           const dist = Math.sqrt(dx * dx + dy * dy);
           if (dist < linkDist) {
-            const alpha = (1 - dist / linkDist) * 0.18;
-            ctx.strokeStyle = `rgba(${color}, ${alpha})`;
-            ctx.beginPath();
             ctx.moveTo(px[i].x, px[i].y);
             ctx.lineTo(px[j].x, px[j].y);
-            ctx.stroke();
           }
         }
       }
+      ctx.stroke();
 
       for (const p of px) {
         ctx.fillStyle = `rgba(${color}, 0.5)`;
