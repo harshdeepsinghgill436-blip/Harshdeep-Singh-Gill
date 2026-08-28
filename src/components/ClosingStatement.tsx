@@ -9,9 +9,10 @@ export function ClosingStatement() {
         <div className="glow-card relative rounded-2xl border border-[var(--color-blue)]/20 bg-gradient-to-b from-[var(--color-surface)] to-[var(--color-surface-2)] p-8 sm:p-14">
           <Quote size={26} className="text-[var(--color-blue)]" />
           <p className="mt-5 text-2xl font-medium leading-snug tracking-tight text-white sm:text-[2rem]">
-            A growth partner doesn't hand you a plan and leave. I build the
-            system, run it, and keep improving it — so the growth doesn't
-            stop the day the project does.
+            A growth partner is worth an entire team. I combine high-level
+            sales and marketing with the underlying tech to build
+            self-sustaining profit loops that compound without me in the
+            room.
           </p>
           <div className="mt-8 flex items-center gap-3 border-t border-[var(--color-line)] pt-6">
             <div className="h-px flex-1 bg-gradient-to-r from-[var(--color-blue)] to-transparent" />
