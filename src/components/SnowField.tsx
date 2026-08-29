@@ -35,7 +35,7 @@ export function SnowField({
       x: Math.random(),
       y: Math.random(),
       speed: 0.02 + Math.random() * 0.035,
-      size: 2 + Math.random() * 3.5,
+      size: 4.5 + Math.random() * 5,
       sway: Math.random() * Math.PI * 2,
       rotation: Math.random() * Math.PI,
       spin: (Math.random() - 0.5) * 0.6,
@@ -48,7 +48,7 @@ export function SnowField({
       ctx!.translate(x, y);
       ctx!.rotate(angle);
       ctx!.strokeStyle = `rgba(${color}, ${alpha})`;
-      ctx!.lineWidth = Math.max(0.6, size * 0.12);
+      ctx!.lineWidth = Math.max(1, size * 0.16);
       for (let i = 0; i < 3; i++) {
         ctx!.beginPath();
         ctx!.moveTo(-size, 0);
