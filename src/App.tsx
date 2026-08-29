@@ -114,10 +114,10 @@ function App() {
 
           <CaseStudy
             bg="growth"
-            eyebrow="Live build · Conversion-focused site"
-            title="Their site, rebuilt"
-            titleAccent="to actually sell."
-            description="I built a smaller, sharper version of their existing website — same business, same offer, but rebuilt for marketing and conversion. Less to click through, more reason to order."
+            eyebrow="Live build · High-converting landing page"
+            title="A landing page,"
+            titleAccent="built to convert."
+            description="A high-converting landing page, built on demand — one clear offer, stated plainly, with nothing between the visitor and the order."
             shots={[
               { src: sbtHero, caption: "The hero — the full offer, stated plainly" },
               { src: sbtYoutube, caption: "A real published interview, embedded live" },

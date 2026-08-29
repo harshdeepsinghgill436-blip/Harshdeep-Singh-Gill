@@ -62,7 +62,10 @@ export function SphereCanvas({
       if (!ctx || !canvas) return;
       const dt = lastT ? (t - lastT) / 1000 : 0;
       lastT = t;
-      if (!reduceMotion) angleY += dt * 0.18;
+      if (!reduceMotion) {
+        angleY += dt * 0.18;
+        angleX = 0.3 + Math.sin(t * 0.00012) * 0.22;
+      }
 
       ctx.clearRect(0, 0, width, height);
 
@@ -94,10 +97,10 @@ export function SphereCanvas({
       ctx.lineWidth = 0.6;
       ctx.strokeStyle = `rgba(${color}, 0.1)`;
       ctx.beginPath();
-      const window = Math.min(14, projected.length - 1);
+      const linkWindow = Math.min(14, projected.length - 1);
       for (let i = 0; i < projected.length; i++) {
         const a = projected[i];
-        for (let k = 1; k <= window; k++) {
+        for (let k = 1; k <= linkWindow; k++) {
           const j = i + k;
           if (j >= projected.length) break;
           const b = projected[j];
