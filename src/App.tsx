@@ -52,11 +52,10 @@ function App() {
         <main>
           <Hero />
 
-          <Testimonial
-            quote="I've been impressed so far with his depth of knowledge and technical capabilities building our platform from the ground up."
-            name="Drew Knapp"
-            context="Founder & CEO, A Greater Town"
-            img={drewImg}
+          <VideoTestimonial
+            src={clientVideo}
+            poster={clientVideoPoster}
+            context="Helped him book more calls in less time, on a tighter budget"
           />
 
           <CaseStudy
@@ -106,10 +105,11 @@ function App() {
             ]}
           />
 
-          <VideoTestimonial
-            src={clientVideo}
-            poster={clientVideoPoster}
-            context="Helped him book more calls in less time, on a tighter budget"
+          <Testimonial
+            quote="I've been impressed so far with his depth of knowledge and technical capabilities building our platform from the ground up."
+            name="Drew Knapp"
+            context="Founder & CEO, A Greater Town"
+            img={drewImg}
           />
 
           <CaseStudy
