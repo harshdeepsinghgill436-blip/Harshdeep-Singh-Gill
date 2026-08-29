@@ -45,7 +45,7 @@ export function GrowthField({
       x: Math.random(),
       y: Math.random(),
       speed: 0.015 + Math.random() * 0.025,
-      size: 0.6 + Math.random() * 1.6,
+      size: 1 + Math.random() * 2.2,
       drift: (Math.random() - 0.5) * 0.15,
     }));
 
@@ -68,7 +68,7 @@ export function GrowthField({
             p.x = Math.random();
           }
         }
-        const alpha = 0.15 + (1 - Math.abs(p.y - 0.5) * 1.4) * 0.25;
+        const alpha = 0.25 + (1 - Math.abs(p.y - 0.5) * 1.4) * 0.35;
         ctx.fillStyle = `rgba(${color}, ${Math.max(0.06, alpha)})`;
         ctx.beginPath();
         ctx.arc(p.x * width, p.y * height, p.size, 0, Math.PI * 2);

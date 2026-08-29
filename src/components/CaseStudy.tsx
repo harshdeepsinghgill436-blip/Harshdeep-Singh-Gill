@@ -34,17 +34,20 @@ export function CaseStudy({
       className="relative overflow-hidden py-20 sm:py-28"
     >
       {bg === "flow" && (
-        <FlowLines className="pointer-events-none absolute inset-0 h-full w-full opacity-40" />
+        <FlowLines
+          className="pointer-events-none absolute inset-0 h-full w-full opacity-55"
+          nodeCount={42}
+        />
       )}
       {bg === "sphere" && (
         <SphereCanvas
-          className="pointer-events-none absolute right-[-10%] top-1/2 h-[480px] w-[480px] -translate-y-1/2 opacity-30"
-          pointCount={140}
-          radius={0.85}
+          className="pointer-events-none absolute inset-0 h-full w-full opacity-45"
+          pointCount={220}
+          radius={1.1}
         />
       )}
       {bg === "growth" && (
-        <GrowthField className="pointer-events-none absolute inset-0 h-full w-full opacity-40" count={40} />
+        <GrowthField className="pointer-events-none absolute inset-0 h-full w-full opacity-55" count={70} />
       )}
       {bg === "pulse" && (
         <PulseGrid className="pointer-events-none absolute inset-0 h-full w-full opacity-50" />
