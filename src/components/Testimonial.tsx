@@ -2,7 +2,7 @@ import { Quote, Expand } from "lucide-react";
 import { useLightbox } from "@/components/Lightbox";
 import { DriftLines } from "@/components/DriftLines";
 import { StarField } from "@/components/StarField";
-import { EmberField } from "@/components/EmberField";
+import { AirCurrent } from "@/components/AirCurrent";
 
 export function Testimonial({
   quote,
@@ -28,7 +28,7 @@ export function Testimonial({
         <DriftLines className="pointer-events-none absolute inset-0 h-full w-full opacity-70" />
       )}
       {bg === "ember" && (
-        <EmberField className="pointer-events-none absolute inset-0 h-full w-full opacity-80" />
+        <AirCurrent className="pointer-events-none absolute inset-0 h-full w-full opacity-90" />
       )}
       {bg === "stars" && (
         <StarField className="pointer-events-none absolute inset-0 h-full w-full opacity-90" />
