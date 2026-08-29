@@ -1,10 +1,10 @@
 import { useEffect, useRef } from "react";
 
-/** Small dots orbiting slowly around a fixed center — distinct from
- * sphere/flow/growth/pulse: circular motion, not drift or waves. */
-export function OrbitDots({
+/** Soft diagonal light streaks drifting across the section —
+ * distinct from orbit/pulse/flow/growth/scan/sphere. */
+export function DriftLines({
   className,
-  count = 24,
+  count = 8,
   color = "14, 118, 255",
 }: {
   className?: string;
@@ -37,11 +37,10 @@ export function OrbitDots({
     resize();
     window.addEventListener("resize", resize);
 
-    const dots = Array.from({ length: count }, (_, i) => ({
-      ring: i % 3,
-      offset: Math.random() * Math.PI * 2,
-      speed: 0.15 + Math.random() * 0.15,
-      size: 1 + Math.random() * 1.8,
+    const streaks = Array.from({ length: count }, (_, i) => ({
+      offset: i / count,
+      speed: 0.05 + Math.random() * 0.04,
+      width: 60 + Math.random() * 100,
     }));
 
     let raf = 0;
@@ -55,28 +54,20 @@ export function OrbitDots({
       if (!reduceMotion) elapsed += dt;
 
       ctx.clearRect(0, 0, width, height);
-      const cx = width / 2;
-      const cy = height / 2;
-      const baseR = Math.min(width, height) * 0.32;
+      const diag = width + height;
 
-      for (const d of dots) {
-        const r = baseR * (0.5 + d.ring * 0.25);
-        const angle = elapsed * d.speed * (d.ring % 2 === 0 ? 1 : -1) + d.offset;
-        const x = cx + Math.cos(angle) * r;
-        const y = cy + Math.sin(angle) * r * 0.55;
-        ctx.fillStyle = `rgba(${color}, 0.5)`;
-        ctx.beginPath();
-        ctx.arc(x, y, d.size, 0, Math.PI * 2);
-        ctx.fill();
-      }
-
-      for (let ring = 0; ring < 3; ring++) {
-        const r = baseR * (0.5 + ring * 0.25);
-        ctx.strokeStyle = `rgba(${color}, 0.08)`;
-        ctx.lineWidth = 1;
-        ctx.beginPath();
-        ctx.ellipse(cx, cy, r, r * 0.55, 0, 0, Math.PI * 2);
-        ctx.stroke();
+      for (const s of streaks) {
+        const pos = ((elapsed * s.speed + s.offset) % 1) * diag * 1.4 - height;
+        const grad = ctx.createLinearGradient(pos, 0, pos + s.width, height);
+        grad.addColorStop(0, `rgba(${color}, 0)`);
+        grad.addColorStop(0.5, `rgba(${color}, 0.06)`);
+        grad.addColorStop(1, `rgba(${color}, 0)`);
+        ctx.fillStyle = grad;
+        ctx.save();
+        ctx.translate(pos, 0);
+        ctx.transform(1, 0.6, 0, 1, 0, 0);
+        ctx.fillRect(0, -height, s.width, height * 3);
+        ctx.restore();
       }
 
       raf = requestAnimationFrame(frame);

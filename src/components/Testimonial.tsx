@@ -1,6 +1,6 @@
 import { Quote, Expand } from "lucide-react";
 import { useLightbox } from "@/components/Lightbox";
-import { OrbitDots } from "@/components/OrbitDots";
+import { DriftLines } from "@/components/DriftLines";
 
 export function Testimonial({
   quote,
@@ -18,7 +18,7 @@ export function Testimonial({
 
   return (
     <section className="relative overflow-hidden border-y border-[var(--color-line)] py-20 sm:py-28">
-      <OrbitDots className="pointer-events-none absolute inset-0 h-full w-full opacity-60" />
+      <DriftLines className="pointer-events-none absolute inset-0 h-full w-full opacity-70" />
       <div className="relative mx-auto max-w-3xl px-5 text-center sm:px-8">
         <Quote size={28} className="mx-auto text-[var(--color-blue)]" />
         <blockquote className="mt-6 font-display text-2xl font-medium leading-snug text-white sm:text-3xl">
