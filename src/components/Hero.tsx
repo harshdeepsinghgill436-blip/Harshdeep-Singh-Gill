@@ -19,7 +19,7 @@ export function Hero() {
 
         <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-[var(--color-dim)] sm:text-lg">
           Growth partner for businesses. Sales, marketing, and the tech
-          underneath both — built into self-sustaining systems that keep
+          underneath — built into self-sustaining systems that keep
           growing without me in the room.
         </p>
       </div>
