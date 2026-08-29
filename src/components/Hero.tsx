@@ -6,7 +6,7 @@ export function Hero() {
       <div className="pointer-events-none absolute inset-0 noise" aria-hidden />
 
       <SphereCanvas
-        className="pointer-events-none absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 opacity-70 sm:h-[820px] sm:w-[820px]"
+        className="pointer-events-none absolute left-1/2 top-1/2 h-[420px] w-[420px] -translate-x-1/2 -translate-y-1/2 opacity-70 sm:h-[820px] sm:w-[820px]"
         pointCount={260}
       />
 

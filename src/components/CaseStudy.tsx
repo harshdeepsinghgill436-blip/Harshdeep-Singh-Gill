@@ -48,7 +48,7 @@ export function CaseStudy({
         />
       )}
       {bg === "growth" && (
-        <GrowthField className="pointer-events-none absolute inset-0 h-full w-full opacity-55" count={70} />
+        <GrowthField className="pointer-events-none absolute inset-0 h-full w-full opacity-70" count={70} />
       )}
       {bg === "pulse" && (
         <PulseGrid className="pointer-events-none absolute inset-0 h-full w-full opacity-50" />

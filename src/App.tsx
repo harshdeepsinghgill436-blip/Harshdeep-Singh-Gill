@@ -59,7 +59,7 @@ function App() {
           />
 
           <CaseStudy
-            bg="growth"
+            bg="scan"
             eyebrow="Live build · Coaching & community"
             title="From Discord server to"
             titleAccent="private empire."
@@ -110,10 +110,11 @@ function App() {
             name="Drew Knapp"
             context="Founder & CEO, A Greater Town"
             img={drewImg}
+            bg="ember"
           />
 
           <CaseStudy
-            bg="scan"
+            bg="growth"
             eyebrow="Live build · High-converting landing page"
             title="A landing page,"
             titleAccent="built to convert."
