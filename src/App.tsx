@@ -64,7 +64,7 @@ function App() {
             eyebrow="Live build · Coaching & community"
             title="From Discord server to"
             titleAccent="private empire."
-            description="High Society was a coaching community living entirely inside Discord. We gave it a home of its own — a private branded app, a website that actually sells the vision, and a funnel engineered to convert cold visitors into paying members."
+            description="High Society was a coaching community living entirely inside Discord. I gave it a home of its own — a private branded app, a website that actually sells the vision, and a funnel engineered to convert cold visitors into paying members."
             stats={[
               { value: "20", label: "New members in 3 weeks" },
               { value: "↑", label: "Direct sales, post-launch" },
@@ -114,16 +114,10 @@ function App() {
 
           <CaseStudy
             bg="growth"
-            eyebrow="Live build · Lead-gen media funnel"
-            title="One conversation,"
-            titleAccent="engineered into a campaign."
-            description="Small Business Talks turns a single interview into a full media package — video, podcast syndication, and a lead-gen funnel built to rank small business clients fast. A real client moved from page 3 to page 1 in three weeks."
-            stats={[
-              { value: "21", label: "Media items in one package" },
-              { value: "5+", label: "Podcast platforms per episode" },
-              { value: "Page 1", label: "Real client: page 3 to page 1 in 3 weeks" },
-              { value: "DA 60", label: "Publishing authority on the host site" },
-            ]}
+            eyebrow="Live build · Conversion-focused site"
+            title="Their site, rebuilt"
+            titleAccent="to actually sell."
+            description="I built a smaller, sharper version of their existing website — same business, same offer, but rebuilt for marketing and conversion. Less to click through, more reason to order."
             shots={[
               { src: sbtHero, caption: "The hero — the full offer, stated plainly" },
               { src: sbtYoutube, caption: "A real published interview, embedded live" },

@@ -2,7 +2,7 @@ import { SphereCanvas } from "@/components/SphereCanvas";
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden pt-36 pb-20 sm:pt-48 sm:pb-28">
+    <section className="relative overflow-hidden pt-36 pb-20 sm:pt-40 sm:pb-24">
       <div className="pointer-events-none absolute inset-0 noise" aria-hidden />
 
       <SphereCanvas

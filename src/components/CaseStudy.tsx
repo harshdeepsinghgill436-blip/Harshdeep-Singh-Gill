@@ -21,7 +21,7 @@ export function CaseStudy({
   title: string;
   titleAccent: string;
   description: string;
-  stats: Stat[];
+  stats?: Stat[];
   shots: Shot[];
   /** Which subtle animated background motif this section uses. */
   bg?: "flow" | "sphere" | "growth" | "pulse";
@@ -62,17 +62,19 @@ export function CaseStudy({
         </p>
 
         {/* Stat row — numbered, Sharplink-style */}
-        <div className="mt-10 grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-[var(--color-line)] bg-[var(--color-line)] sm:grid-cols-4">
-          {stats.map((s, i) => (
-            <div key={s.label} className="bg-[var(--color-surface)] p-4 sm:p-5">
-              <div className="font-mono text-[10px] text-[var(--color-blue)]">0{i + 1}</div>
-              <div className="mt-1 font-display text-xl font-semibold text-white sm:text-2xl">
-                {s.value}
+        {stats && stats.length > 0 && (
+          <div className="mt-10 grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-[var(--color-line)] bg-[var(--color-line)] sm:grid-cols-4">
+            {stats.map((s, i) => (
+              <div key={s.label} className="bg-[var(--color-surface)] p-4 sm:p-5">
+                <div className="font-mono text-[10px] text-[var(--color-blue)]">0{i + 1}</div>
+                <div className="mt-1 font-display text-xl font-semibold text-white sm:text-2xl">
+                  {s.value}
+                </div>
+                <div className="mt-1 text-xs leading-snug text-[var(--color-dim)]">{s.label}</div>
               </div>
-              <div className="mt-1 text-xs leading-snug text-[var(--color-dim)]">{s.label}</div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
 
         <p className="mt-10 flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.1em] text-[var(--color-dimmer)]">
           <Expand size={11} /> Tap any screenshot to zoom in
