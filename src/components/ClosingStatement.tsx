@@ -1,10 +1,10 @@
-import { GrowthField } from "@/components/GrowthField";
+import { SnowField } from "@/components/SnowField";
 import { Quote } from "lucide-react";
 
 export function ClosingStatement() {
   return (
     <section className="relative overflow-hidden border-t border-[var(--color-line)] py-24 sm:py-32">
-      <GrowthField className="pointer-events-none absolute inset-0 h-full w-full opacity-50" />
+      <SnowField className="pointer-events-none absolute inset-0 h-full w-full opacity-80" />
       <div className="relative mx-auto max-w-2xl px-5 sm:px-8">
         <div className="glow-card relative rounded-2xl border border-[var(--color-blue)]/20 bg-gradient-to-b from-[var(--color-surface)] to-[var(--color-surface-2)] p-8 sm:p-14">
           <Quote size={26} className="text-[var(--color-blue)]" />
