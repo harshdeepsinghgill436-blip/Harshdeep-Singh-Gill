@@ -5,6 +5,7 @@ import { FlowLines } from "@/components/FlowLines";
 import { GrowthField } from "@/components/GrowthField";
 import { PulseGrid } from "@/components/PulseGrid";
 import { ScanLines } from "@/components/ScanLines";
+import { WebLines } from "@/components/WebLines";
 
 type Shot = { src: string; caption: string };
 type Stat = { value: string; label: string };
@@ -17,6 +18,7 @@ export function CaseStudy({
   stats,
   shots,
   bg = "flow",
+  heartbeat = false,
 }: {
   eyebrow: string;
   title: string;
@@ -25,7 +27,8 @@ export function CaseStudy({
   stats?: Stat[];
   shots: Shot[];
   /** Which subtle animated background motif this section uses. */
-  bg?: "flow" | "sphere" | "growth" | "pulse" | "scan";
+  bg?: "flow" | "sphere" | "growth" | "pulse" | "scan" | "web";
+  heartbeat?: boolean;
 }) {
   const showLightbox = useLightbox();
 
@@ -56,6 +59,9 @@ export function CaseStudy({
       {bg === "scan" && (
         <ScanLines className="pointer-events-none absolute inset-0 h-full w-full opacity-70" />
       )}
+      {bg === "web" && (
+        <WebLines className="pointer-events-none absolute inset-0 h-full w-full opacity-70" count={26} />
+      )}
 
       <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
         <div className="font-mono text-xs uppercase tracking-[0.25em] text-[var(--color-blue)]">
@@ -74,7 +80,11 @@ export function CaseStudy({
             {stats.map((s, i) => (
               <div key={s.label} className="bg-[var(--color-surface)] p-4 sm:p-5">
                 <div className="font-mono text-[10px] text-[var(--color-blue)]">0{i + 1}</div>
-                <div className="mt-1 font-display text-xl font-semibold text-white sm:text-2xl">
+                <div
+                  className={`mt-1 font-display text-xl font-semibold text-white sm:text-2xl ${
+                    heartbeat ? "heartbeat" : ""
+                  }`}
+                >
                   {s.value}
                 </div>
                 <div className="mt-1 text-xs leading-snug text-[var(--color-dim)]">{s.label}</div>

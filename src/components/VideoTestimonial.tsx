@@ -48,7 +48,7 @@ export function VideoTestimonial({
               aria-label="Play client testimonial video"
               className="absolute inset-0 grid place-items-center bg-black/25 transition-colors hover:bg-black/40"
             >
-              <span className="grid h-16 w-16 place-items-center rounded-full bg-[var(--color-blue)] text-white shadow-[0_10px_40px_-8px_rgba(14,118,255,0.7)] transition-transform group-hover:scale-110">
+              <span className="vibrate-btn grid h-16 w-16 place-items-center rounded-full bg-[var(--color-blue)] text-white shadow-[0_10px_40px_-8px_rgba(14,118,255,0.7)] transition-transform group-hover:scale-110">
                 <Play size={24} fill="currentColor" className="translate-x-0.5" />
               </span>
             </button>

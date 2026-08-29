@@ -1,6 +1,7 @@
 import { Quote, Expand } from "lucide-react";
 import { useLightbox } from "@/components/Lightbox";
 import { DriftLines } from "@/components/DriftLines";
+import { StarField } from "@/components/StarField";
 import { EmberField } from "@/components/EmberField";
 
 export function Testimonial({
@@ -9,26 +10,36 @@ export function Testimonial({
   context,
   img,
   bg = "drift",
+  shimmer = false,
 }: {
   quote: string;
   name: string;
   context: string;
   img?: string;
-  bg?: "drift" | "ember";
+  bg?: "drift" | "ember" | "stars";
+  shimmer?: boolean;
 }) {
   const showLightbox = useLightbox();
   const alt = `Message from ${name}`;
 
   return (
     <section className="relative overflow-hidden border-y border-[var(--color-line)] py-20 sm:py-28">
-      {bg === "drift" ? (
+      {bg === "drift" && (
         <DriftLines className="pointer-events-none absolute inset-0 h-full w-full opacity-70" />
-      ) : (
+      )}
+      {bg === "ember" && (
         <EmberField className="pointer-events-none absolute inset-0 h-full w-full opacity-80" />
+      )}
+      {bg === "stars" && (
+        <StarField className="pointer-events-none absolute inset-0 h-full w-full opacity-90" />
       )}
       <div className="relative mx-auto max-w-3xl px-5 text-center sm:px-8">
         <Quote size={28} className="mx-auto text-[var(--color-blue)]" />
-        <blockquote className="mt-6 font-display text-2xl font-medium leading-snug text-white sm:text-3xl">
+        <blockquote
+          className={`mt-6 font-display text-2xl font-medium leading-snug sm:text-3xl ${
+            shimmer ? "shimmer-text" : "text-white"
+          }`}
+        >
           "{quote}"
         </blockquote>
         <div className="mt-6 font-mono text-xs uppercase tracking-[0.15em] text-[var(--color-dim)]">

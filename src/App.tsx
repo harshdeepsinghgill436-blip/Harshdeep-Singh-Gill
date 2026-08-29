@@ -83,10 +83,11 @@ function App() {
             name="Daniel"
             context="Founder, DH Marketing — repaired his marketing funnel"
             img={danielImg}
+            bg="stars"
           />
 
           <CaseStudy
-            bg="flow"
+            bg="web"
             eyebrow="Live build · Real estate tooling"
             title="A deal calculator that"
             titleAccent="picks a side."
@@ -111,10 +112,12 @@ function App() {
             context="Founder & CEO, A Greater Town"
             img={drewImg}
             bg="ember"
+            shimmer
           />
 
           <CaseStudy
             bg="growth"
+            heartbeat
             eyebrow="Live build · High-converting landing page"
             title="A landing page,"
             titleAccent="built to convert."
