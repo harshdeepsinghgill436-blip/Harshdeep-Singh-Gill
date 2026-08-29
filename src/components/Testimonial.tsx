@@ -16,7 +16,7 @@ export function Testimonial({
   name: string;
   context: string;
   img?: string;
-  bg?: "drift" | "ember" | "stars";
+  bg?: "drift" | "ember" | "stars" | "none";
   shimmer?: boolean;
 }) {
   const showLightbox = useLightbox();
@@ -31,7 +31,7 @@ export function Testimonial({
         <AirCurrent className="pointer-events-none absolute inset-0 h-full w-full opacity-90" />
       )}
       {bg === "stars" && (
-        <StarField className="pointer-events-none absolute inset-0 h-full w-full opacity-90" />
+        <StarField className="pointer-events-none absolute inset-0 h-full w-full opacity-90 sm:opacity-100" />
       )}
       <div className="relative mx-auto max-w-3xl px-5 text-center sm:px-8">
         <Quote size={28} className="mx-auto text-[var(--color-blue)]" />

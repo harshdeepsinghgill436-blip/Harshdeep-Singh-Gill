@@ -111,7 +111,7 @@ function App() {
             name="Drew Knapp"
             context="Founder & CEO, A Greater Town"
             img={drewImg}
-            bg="ember"
+            bg="none"
             shimmer
           />
 
