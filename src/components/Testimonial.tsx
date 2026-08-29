@@ -1,5 +1,6 @@
 import { Quote, Expand } from "lucide-react";
 import { useLightbox } from "@/components/Lightbox";
+import { OrbitDots } from "@/components/OrbitDots";
 
 export function Testimonial({
   quote,
@@ -16,8 +17,9 @@ export function Testimonial({
   const alt = `Message from ${name}`;
 
   return (
-    <section className="relative border-y border-[var(--color-line)] py-20 sm:py-28">
-      <div className="mx-auto max-w-3xl px-5 text-center sm:px-8">
+    <section className="relative overflow-hidden border-y border-[var(--color-line)] py-20 sm:py-28">
+      <OrbitDots className="pointer-events-none absolute inset-0 h-full w-full opacity-60" />
+      <div className="relative mx-auto max-w-3xl px-5 text-center sm:px-8">
         <Quote size={28} className="mx-auto text-[var(--color-blue)]" />
         <blockquote className="mt-6 font-display text-2xl font-medium leading-snug text-white sm:text-3xl">
           "{quote}"

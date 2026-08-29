@@ -59,7 +59,7 @@ function App() {
           />
 
           <CaseStudy
-            bg="sphere"
+            bg="growth"
             eyebrow="Live build · Coaching & community"
             title="From Discord server to"
             titleAccent="private empire."
@@ -113,7 +113,7 @@ function App() {
           />
 
           <CaseStudy
-            bg="growth"
+            bg="scan"
             eyebrow="Live build · High-converting landing page"
             title="A landing page,"
             titleAccent="built to convert."

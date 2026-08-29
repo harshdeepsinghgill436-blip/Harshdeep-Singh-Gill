@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import { Play } from "lucide-react";
+import { RippleWaves } from "@/components/RippleWaves";
 
 export function VideoTestimonial({
   src,
@@ -21,8 +22,9 @@ export function VideoTestimonial({
   }
 
   return (
-    <section className="relative border-y border-[var(--color-line)] py-20 sm:py-28">
-      <div className="mx-auto max-w-3xl px-5 text-center sm:px-8">
+    <section className="relative overflow-hidden border-y border-[var(--color-line)] py-20 sm:py-28">
+      <RippleWaves className="pointer-events-none absolute inset-0 h-full w-full opacity-70" />
+      <div className="relative mx-auto max-w-3xl px-5 text-center sm:px-8">
         <div className="font-mono text-xs uppercase tracking-[0.15em] text-[var(--color-blue)]">
           Straight from a client
         </div>

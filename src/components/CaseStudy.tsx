@@ -4,6 +4,7 @@ import { SphereCanvas } from "@/components/SphereCanvas";
 import { FlowLines } from "@/components/FlowLines";
 import { GrowthField } from "@/components/GrowthField";
 import { PulseGrid } from "@/components/PulseGrid";
+import { ScanLines } from "@/components/ScanLines";
 
 type Shot = { src: string; caption: string };
 type Stat = { value: string; label: string };
@@ -24,7 +25,7 @@ export function CaseStudy({
   stats?: Stat[];
   shots: Shot[];
   /** Which subtle animated background motif this section uses. */
-  bg?: "flow" | "sphere" | "growth" | "pulse";
+  bg?: "flow" | "sphere" | "growth" | "pulse" | "scan";
 }) {
   const showLightbox = useLightbox();
 
@@ -51,6 +52,9 @@ export function CaseStudy({
       )}
       {bg === "pulse" && (
         <PulseGrid className="pointer-events-none absolute inset-0 h-full w-full opacity-50" />
+      )}
+      {bg === "scan" && (
+        <ScanLines className="pointer-events-none absolute inset-0 h-full w-full opacity-70" />
       )}
 
       <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
